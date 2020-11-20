@@ -1,6 +1,7 @@
 import React from 'react';
 import Rating from '../components/Rating';
 import data from '../data';
+import { Link } from 'react-router-dom';
 
 export default function ProductScreen(props) {
     const product = data.products.find(x => x._id === props.match.params.id)
@@ -10,7 +11,8 @@ export default function ProductScreen(props) {
     }
     return (
         <div>
-            <div className="row">
+            <Link to="/">Back to result</Link>
+            <div className="row top">
                 <div className="col-2">
                     <img className="large" src={product.image} alt={product.name} />
                 </div>
@@ -44,7 +46,7 @@ export default function ProductScreen(props) {
                                 <div className="row">
                                     <div>Status</div>
                                     <div>
-                                        {product.countIntStock > 0 ? (
+                                        {product.countInStock > 0 ? (
                                             <span className="success">In Stock</span>
                                         ) : (
                                             <span className="error">Unavailable</span>
